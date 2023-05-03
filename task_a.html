@@ -1,0 +1,39 @@
+<html>
+    <head></head>
+    <body>
+
+        <p id="myParagraph">Возьмите пожалуйста меня на работу :)</p>
+        <button id="btn1">Кнопка 1</button>
+        <button id="btn2">Кнопка 2</button>
+        <script>
+
+            var paragraph = document.getElementById("myParagraph");
+            var btn1 = document.getElementById("btn1");
+            var btn2 = document.getElementById("btn2");
+            var btn1_clicked = false;
+            var btn2_clicked = false;
+            var isShown = true;
+
+            btn1.onclick = function() {
+              btn1_clicked = true;
+              btn2_clicked = false;
+            };
+            
+
+            btn2.onclick = function() {
+                btn2_clicked =  true;
+                showHideParagraph();
+                btn1_clicked = false;
+            };
+
+            function showHideParagraph(){
+                isShown = btn1_clicked && btn2_clicked ? !isShown : isShown;
+                if (!isShown) {
+                  paragraph.style.display = "none";
+                } else {
+                  paragraph.style.display = "block";
+              }
+            }
+        </script>
+    </body>
+</html>
